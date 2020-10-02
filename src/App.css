@@ -1,38 +1,74 @@
+:root{
+  --coverage: 50%
+}
+
+h1,h2,h3,h4,h5,h6{
+  margin: 5px;
+  padding: 0;
+}
+
+body{
+  width: 100%;
+height: 100vh;
+}
+.root{
+  height: 100%
+}
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+.displayPackContainer{
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
+  height: 35vh;
 }
 
-.App-link {
-  color: #61dafb;
+.displayPackImg{
+  height: 35vh;
+  position: absolute;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.displayPackImgUsed{
+height: 35vh;
+  position: absolute;
+filter: grayscale(100) contrast(.5) brightness(1.5);
+
+/* filter: saturate(1); */
+clip-path: polygon(0% var(--coverage), 100% var(--coverage), 100% 100%, 0% 100%);
+}
+.trayContainer{
+  background-color: whitesmoke;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 200px;
+  display: flex;
+  margin-top: 2em;
+  border-top: 2px olive solid;
+}
+
+.trayItem{
+  background-color: white;
+  margin-left: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-right: 1px solid wheat;
+  padding: 5px;
+  width: 20%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.trayImage{
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 50px;
 }
