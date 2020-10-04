@@ -12,20 +12,20 @@ function Model(props) {
 	const {nodes, materials} = useGLTFLoader('Backpack.glb');
 	console.log('ran')
 	console.log(nodes)
-	const [texture] = useLoader(THREE.TextureLoader, ['backpack.png']);
+	const [texture] = useLoader(THREE.TextureLoader, ['Backpack.png']);
 
     if (texture) {
         //    map.repeat(0.1, 0.1);
         texture.wrapS = THREE.UVMapping;
         texture.wrapT = THREE.UVMapping;
         // texture.repeat.set(1,1);
-        // materials.map = texture; //new THREE.Color('red');
+        materials.map = texture; //new THREE.Color('red');
 	}
 	const material = new THREE.MeshStandardMaterial({map: texture})
 
     return (<>
-            <group ref={group} {...props} dispose={null}>
-                <mesh material={material} geometry={nodes.Bag.geometry} position={[0.76, 7.3, 3.79]}/>
+            <group ref={group} {...props} dispose={null} >
+                <mesh material={material} geometry={nodes.Backpack.geometry} position={[0.76, 7.3, 3.79]}/>
             </group>
         {/*</TransformControls>*/}
     </>);

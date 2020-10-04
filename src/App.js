@@ -49,15 +49,16 @@ const capacityLeft = 100-(used/selectedBackpack.capacity*100).toFixed(2)
 <h5>which weighs: {selectedBackpack.weight}</h5>
 <h5>with a total capacity of: {capacity} {capacityUnitDisplayText}</h5>
 {/* <img src={selectedBackpack.image}></img> */}
-<Canvas style={{
+{/* <Canvas style={{
 		//  background: "#171717", 
 		height: '400px'
 		 }}>
-      <ambientLight intensity={2} />
+       <ambientLight intensity={.2}/>
+      <pointLight intensity={500} position={100000,0,0} />
         <Backpack/>
        <Controls/>
-    </Canvas>
-{/* <DisplayPack imgSrc={selectedBackpack.image} capacityLeft={capacityLeft}/> */}
+    </Canvas> */}
+<DisplayPack imgSrc={selectedBackpack.image} capacityLeft={capacityLeft}/>
 <Tray/>
 
     </div>
