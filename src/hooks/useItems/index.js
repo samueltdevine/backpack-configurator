@@ -30,7 +30,7 @@ const useItems = () =>
           capacity: 4272,
           image: TraverseSeventy,
         },
-      ],
+      ].map((item) => ({ ...item, id: uuid() })),
       items: [
         {
           type: "sleepingBag",

@@ -1,12 +1,24 @@
 import React from "react";
-import { Backpacks, SleepingBags } from "../Items";
+import useBackpack from "hooks/useBackpack";
+import useItems from "hooks/useItems";
 
 const Tray = () => {
+  const { actions, itemsInBackpack } = useBackpack();
+  const {items} = useItems();
+  const { addItemToBackpack, removeItemFromBackpack } = actions;
+  const itemCheck = (arr, item)=>{
+   return arr.some(function(arrVal){
+     return item === arrVal
+   })
+  }
   return (
     <div className="trayContainer">
-      {SleepingBags.map((item) => {
+      {items.map((item) => {
         return (
-          <div className="trayItem">
+          <div
+            className="trayItem"
+            onClick={() => {
+              (itemCheck(itemsInBackpack, item) ? removeItemFromBackpack(item.id) : addItemToBackpack(item) )}}>
             <h5>{item.name}</h5>
             <div
               className="trayImage"

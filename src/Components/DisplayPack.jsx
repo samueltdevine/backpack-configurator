@@ -1,17 +1,48 @@
-import React from 'react'
+import React from "react";
+import useBackpack from "hooks/useBackpack";
+import { useMemo } from "react";
+import { useCallback } from "react";
+import useItems from "hooks/useItems";
+
+const DisplayPack = ({ imgSrc, capacityLeft }) => {
+  const { actions, backpack } = useBackpack();
+  const setCapacityLeft = document.documentElement.style.setProperty(
+    "--coverage",
+    `${capacityLeft}%`
+  );
+  const { backpacks } = useItems();
+
+  const nextBackpack = useCallback(() => {
+    const nextBackpack =
+      backpacks[backpacks.findIndex((b) => b.id === backpack.id) + 1];
+    nextBackpack && actions.selectBackpack(nextBackpack);
+  }, [backpack]);
+
+  const prevBackpack = useCallback(() => {
+    const nextBackpack =
+      backpacks[backpacks.findIndex((b) => b.id === backpack.id) - 1];
+    nextBackpack && actions.selectBackpack(nextBackpack);
+  }, [backpack]);
 
 
-const DisplayPack = ({ imgSrc, capacityLeft}) =>{
-
-    const setCapacityLeft = document.documentElement.style.setProperty('--coverage', `${capacityLeft}%`)
-
-
-    return <div>
-        <div className="displayPackContainer">
-    <img className="displayPackImg" src={imgSrc}></img>
-    <img className="displayPackImgUsed" src={imgSrc}></img>
+  return (
+    <div>
+      <div className="displayPackContainer">
+        <button 
+          onClick={prevBackpack}
+          className="packButton"> {"<"} </button>
+        <img className="displayPackImg" src={imgSrc}></img>
+        <img className="displayPackImgUsed" src={imgSrc}></img>
+        <button
+          onClick={nextBackpack}
+          className="packButton"
+        >
+          {" "}
+          {">"}{" "}
+        </button>
+      </div>
     </div>
-        </div>
-}
+  );
+};
 
-export default DisplayPack
+export default DisplayPack;
