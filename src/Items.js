@@ -1,7 +1,7 @@
 import React from 'react'
-import TrailbreakSixty from './images/REI_Trailbreak_60.png'
 import GroundbreakerThirty from './images/Groundbreaker_30.png'
 import MagmaFifteen from './images/Magma_15.png'
+import TrailbreakSixty from './images/REI_Trailbreak_60.png'
 import TraverseThirtyFive from './images/Traverse_35.png'
 import TraverseSeventy from './images/Traverse_70.png'
 

@@ -13,9 +13,9 @@ const initialState = {
 export const backpackSlice = createSlice({
     name: "backpack",
     initialState, reducers: {
-        selectBackpack: (state, action) => ({...state}),
-        addItemToBackpack: (state, action) => ({...state}),
-        removeItemFromBackpack: (state, action) => ({...state})
+        selectBackpack: (state, action) => ({...state, backpack: action.payload}),
+        addItemToBackpack: (state, action) => ({...state, items: state.items.concat([action.payload])}),
+        removeItemFromBackpack: (state, action) => ({...state, items: state.items.filter(item => item.id !== action.payload)})
     }
 });
 
