@@ -22,7 +22,7 @@ height: 100vh;
 
 .displayPackContainer{
   align-items: center;
-
+  position: relative;
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -41,6 +41,14 @@ height: 25px;
   position: absolute;
 }
 
+.sleepingPad{
+  height: 15vh;
+  z-index: 1;
+  bottom: -50px;
+  right: 30%;
+  position: absolute;
+  
+}
 
 .displayPackImgUsed{
 height: 35vh;
@@ -49,6 +57,7 @@ filter: grayscale(100) contrast(.5) brightness(1.5);
 clip-path: polygon(0% var(--coverage), 100% var(--coverage), 100% 100%, 0% 100%);
 }
 .trayContainer{
+  z-index: 2;
   background-color: whitesmoke;
   width: 100%;
   position: absolute;
@@ -73,6 +82,11 @@ clip-path: polygon(0% var(--coverage), 100% var(--coverage), 100% 100%, 0% 100%)
   display: flex;
   flex-direction: column-reverse;
 }
+
+.traySelect{
+  outline: 5px solid olive;
+}
+
 .trayImage{
   background-size: contain;
   background-position: center;

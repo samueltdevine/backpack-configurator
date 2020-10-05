@@ -16,7 +16,7 @@ const Tray = () => {
       {items.map((item) => {
         return (
           <div
-            className="trayItem"
+            className={`trayItem ${(itemCheck(itemsInBackpack, item) ? "traySelect" : "")}`}
             onClick={() => {
               (itemCheck(itemsInBackpack, item) ? removeItemFromBackpack(item.id) : addItemToBackpack(item) )}}>
             <h5>{item.name}</h5>

@@ -4,7 +4,8 @@ import MagmaFifteen from './images/Magma_15.png'
 import TrailbreakSixty from './images/REI_Trailbreak_60.png'
 import TraverseThirtyFive from './images/Traverse_35.png'
 import TraverseSeventy from './images/Traverse_70.png'
-
+import RidgeRest from './image/Therm-a-Rest-RidgeRest_SoLite.png'
+import NemoTensor from './image/NEMO_Tensor_insulated_Sleeping_Pad.png'
 export const Backpacks = [
     {
     name: "REI Co-op Trailbreak 60 Pack - Men's",

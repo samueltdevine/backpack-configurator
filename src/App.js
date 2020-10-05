@@ -28,7 +28,6 @@ function App() {
   });
 
   const capacityLeft = 100 - ((usedVolume / selectedBackpack.capacity) * 100).toFixed(2);
-
   return (
     <div className="App">
       <h1>Backpack Checker</h1>
@@ -40,16 +39,6 @@ function App() {
       <h5>
         with a total capacity of: {capacity} {capacityUnitDisplayText}
       </h5>
-      {/* <img src={selectedBackpack.image}></img> */}
-      {/* <Canvas style={{
-		//  background: "#171717", 
-		height: '400px'
-		 }}>
-       <ambientLight intensity={.2}/>
-      <pointLight intensity={500} position={100000,0,0} />
-        <Backpack/>
-       <Controls/>
-    </Canvas> */}
       <DisplayPack
         imgSrc={selectedBackpack.image}
         capacityLeft={capacityLeft}

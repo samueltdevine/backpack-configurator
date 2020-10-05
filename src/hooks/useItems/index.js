@@ -6,7 +6,9 @@ import GroundbreakerThirty from "images/Groundbreaker_30.png";
 import TrailbreakSixty from 'images/REI_Trailbreak_60.png'
 import TraverseThirtyFive from 'images/Traverse_35.png'
 import TraverseSeventy from 'images/Traverse_70.png'
-
+import RidgeRest from 'images/Therm-a-Rest_RidgeRest_SoLite.png'
+import RidgeRestExternal from 'images/Therm-a-Rest_RidgeRest_SoLite_external.png'
+import NemoTensor from 'images/NEMO_Tensor_Insulated_Sleeping_Pad.png'
 
 const useItems = () =>
   useMemo(
@@ -38,7 +40,8 @@ const useItems = () =>
           weight: "3 lbs. 10 oz.",
           volume: 1525.59,
           image: GroundbreakerThirty,
-          type: "synthetic",
+          style: "synthetic",
+          externalStorage: false
         },
         {
           type: "sleepingBag",
@@ -46,8 +49,29 @@ const useItems = () =>
           weight: "1 lb. 12.2 oz.",
           volume: 665.1588,
           image: MagmaFifteen,
-          type: "down",
+          style: "down",
+          externalStorage: false
+
         },
+        {
+          type: "sleepingPad",
+          name: "Nemo Tensor Insulated Sleeping Pad",
+          weight: "15 oz.",
+          volume: 226.19,
+          image: NemoTensor,
+          style: "air",
+          externalStorage: false
+        },
+        {
+          type: "sleepingPad",
+          name: "Therm-a-Rest RidgeRest SOLite Sleeping Pad",
+          weight: "15 oz.",
+          volume: 0.0,
+          image: RidgeRest,
+          style: "foam",
+          externalStorage: true,
+          externalImage: RidgeRestExternal
+        }
       ].map((item) => ({ ...item, id: uuid() })),
     }),
     []
