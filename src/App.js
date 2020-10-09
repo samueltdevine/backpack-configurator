@@ -8,6 +8,7 @@ import DisplayPack from "./Components/DisplayPack";
 import Tray from "./Components/Tray";
 import { Controls } from "./Components/Controls";
 import useBackpack from "hooks/useBackpack";
+import { Backpack } from "Components/Backpack";
 
 
 
@@ -39,6 +40,7 @@ function App() {
       <h5>
         with a total capacity of: {capacity} {capacityUnitDisplayText}
       </h5>
+      {/* <Backpack/> */}
       <DisplayPack
         imgSrc={selectedBackpack.image}
         capacityLeft={capacityLeft}

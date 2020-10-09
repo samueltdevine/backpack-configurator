@@ -3,7 +3,7 @@ import useBackpack from "hooks/useBackpack";
 import { useMemo } from "react";
 import { useCallback } from "react";
 import useItems from "hooks/useItems";
-import {SleepingPadRender} from 'Components/SleepingPad';
+import { SleepingPadRender } from "Components/SleepingPad";
 
 const DisplayPack = ({ imgSrc, capacityLeft, sleepingPad }) => {
   const { actions, backpack } = useBackpack();
@@ -25,24 +25,42 @@ const DisplayPack = ({ imgSrc, capacityLeft, sleepingPad }) => {
     nextBackpack && actions.selectBackpack(nextBackpack);
   }, [backpack]);
 
+  const displayBackpack = useCallback(
+    (arg) => {
+      const nextBackpack =
+        backpacks[backpacks.findIndex((b) => b.id === backpack.id) + arg];
+      if (nextBackpack === undefined) {
+        return null;
+      }
+      return nextBackpack.image;
+    },
+    [backpack]
+  );
+
   return (
-    <div>
+    <div className="displayPackTray">
+        <button onClick={prevBackpack} className="packButton">
+          {" "}
+          {"<"}{" "}
+        </button>
+        <div
+          className="nextPack"
+          style={{ backgroundImage: `url(${displayBackpack(-1)})` }}
+        />
       <div className="displayPackContainer">
-        <button 
-          onClick={prevBackpack}
-          className="packButton"> {"<"} </button>
-        <SleepingPadRender/>
+        <SleepingPadRender />
         <img className="displayPackImg" src={imgSrc}></img>
         <img className="displayPackImgUsed" src={imgSrc}></img>
-        
-        <button
-          onClick={nextBackpack}
-          className="packButton"
-        >
+      </div>
+        <div
+          className="nextPack"
+          style={{ backgroundImage: `url(${displayBackpack(+1)})` }}
+        />
+
+        <button onClick={nextBackpack} className="packButton">
           {" "}
           {">"}{" "}
         </button>
-      </div>
     </div>
   );
 };
